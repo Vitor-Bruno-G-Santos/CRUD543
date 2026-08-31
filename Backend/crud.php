@@ -17,6 +17,7 @@ class crud
         $db = bancoDados::conectar();
         $stmt = $db->prepare("DELETE FROM usuarios WHERE id = :id");
         $stmt->execute(['id' => $id]);
+        redirecionar('crud');
     }
     public function cadastrar()
     {
