@@ -1,0 +1,33 @@
+@import url("../../reset.css");
+
+.secaoLogin{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.esquerdaLogin{
+    display: flex;
+    background-color: rgb(55, 96, 191);
+    width: 50%;
+    height: 100%;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+.direitaLogin{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.areaLogin{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    padding: 1rem;
+    gap: .5rem;
+}
+
