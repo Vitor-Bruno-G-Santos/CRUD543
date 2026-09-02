@@ -37,7 +37,7 @@ class crud
     {
         $db = bancoDados::conectar();
         var_dump($_POST['nome']);
-        $stmt = $db->prepare('UPDATE usuarios SET (nome = :n,email = :e,senha = :s,cpf = :c,perfil = :p) WHERE id = :id');
+        $stmt = $db->prepare('UPDATE usuarios SET nome = :n,email = :e,senha = :s,cpf = :c,perfil = :p WHERE id = :id');
         $stmt->execute([
             
             'n' => $_POST['nome'],
@@ -49,4 +49,15 @@ class crud
         ]);
         redirecionar('crud');
     }
+    public function json(){
+        $db = bancoDados::conectar();
+        $id = (int) $_GET["id"];
+        $stmt = $db->prepare("SELECT * FROM usuarios WHERE id = :id");
+        $stmt->execute(['id' => $id]);
+        $usuarios = $stmt->fetch();
+        header("Content-Type: application/json; charset=utf-8");
+        echo json_encode($usuarios);
+    }
+
+
 }

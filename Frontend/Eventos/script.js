@@ -1,5 +1,5 @@
 async function buscar(id){
-    const resposta = await fetch(`/CRUD543/json?id=${id}`);
+    const resposta = await fetch(`/CRUD543/eventos/json?id=${id}`);
     const dados = await resposta.json();
     return dados;
 }
@@ -10,18 +10,14 @@ async function abrirModal(id) {
     const modal = document.querySelector(".cadastro");
     modal.classList.add('active');
     modal.innerHTML = `
-        <form action=${dados ? "atualizar" : "cadastrar"} method="POST" class="formulario">
+        <form action=${dados ? "eventos/atualizar" : "eventos/cadastrar"} method="POST" class="formulario">
             <input type="hidden" name="id" id="id" value=${(dados.id ?? "")}>
             <label for="Nome">Nome</label>
             <input type="text" name="nome" id="nome" value=${(dados.nome ?? "")}>
-            <label for="Nome">Email</label>
-            <input type="mail" name="email" id="email" value=${(dados.email ?? "")}>
-            <label for="Nome">Senha</label>
-            <input type="password" name="senha" id="senha" value=${(dados.senha ?? "")}>
-            <label for="Nome">CPF</label>
-            <input type="text" name="cpf" id="cpf" value=${(dados.cpf ?? "")}>
-            <label for="Nome">Perfil</label>
-            <input type="text" name="perfil" id="perfil" value=${(dados.perfil ?? "")}>
+            <label for="Nome">Data</label>
+            <input type="date" name="data" id="data" value=${(dados.data ?? "")}>
+            <label for="Nome">Capacidade Maxima</label>
+            <input type="number" name="capacidade_maxima" id="capacidade_maxima" value=${(dados.capacidade_maxima ?? "")}>
             <div>
                 <button type="button" onclick="fecharModal()">Cancelar</button>
                 <button>Enviar</button>
