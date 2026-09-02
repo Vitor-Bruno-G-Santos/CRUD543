@@ -18,7 +18,6 @@ class login
         $stmt = $db->prepare("SELECT senha FROM usuarios WHERE email = :e");
         $stmt->execute(['e' => $email]);
         $verificar = $stmt->fetch();
-        var_dump($verificar);
         if ($senha == $verificar['senha']){
             redirecionar('crud');
         }else{
