@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD543</title>
-    <script src="/CRUD543/Frontend/Eventos/script.js"></script>
-    <link rel="stylesheet" href="/CRUD543/Frontend/Eventos/style.css">
+    <script src="/CRUD543/Frontend/Setor/script.js"></script>
+    <link rel="stylesheet" href="/CRUD543/Frontend/Setor/style.css">
 </head>
 
 <body>
@@ -20,8 +20,7 @@
             <thead>
                 <tr>
                     <th class="item">Nome</th>
-                    <th class="item">Data</th>
-                    <th class="item">Capacidade Maxima</th>
+                    <th class="item">Capacidade Setor</th>
                     <th class="item">Ações</th>
                 </tr>
             </thead>

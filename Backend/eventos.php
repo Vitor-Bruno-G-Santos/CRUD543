@@ -40,11 +40,12 @@ class eventos
             'n' => $_POST['nome'],
             'd' => $_POST['data'],
             'c' => $_POST['capacidade_maxima'],
-            'id' =>$_POST['id']
+            'id' => $_POST['id']
         ]);
         redirecionar('eventos');
     }
-    public function json(){
+    public function json()
+    {
         $db = bancoDados::conectar();
         $id = (int) $_GET["id"];
         $stmt = $db->prepare("SELECT * FROM eventos WHERE id = :id");
@@ -53,6 +54,13 @@ class eventos
         header("Content-Type: application/json; charset=utf-8");
         echo json_encode($usuarios);
     }
-
-
+    public function listarEventos()
+    {
+        $db = bancoDados::conectar();
+        $stmt = $db->prepare("SELECT * FROM eventos");
+        $stmt->execute();
+        $usuarios = $stmt->fetch();
+        header("Content-Type: application/json; charset=utf-8");
+        echo json_encode($usuarios);
+    }
 }

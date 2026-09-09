@@ -15,7 +15,7 @@ class setor
     {
         $id = $_GET['id'];
         $db = bancoDados::conectar();
-        $stmt = $db->prepare("DELETE FROM eventos WHERE id = :id");
+        $stmt = $db->prepare("DELETE FROM setores WHERE id = :id");
         $stmt->execute(['id' => $id]);
         redirecionar('eventos');
     }
@@ -23,11 +23,10 @@ class setor
     {
         $db = bancoDados::conectar();
         var_dump($_POST['nome']);
-        $stmt = $db->prepare('INSERT INTO eventos(nome, data, capacidade_maxima) VALUES (:n, :d, :c)');
+        $stmt = $db->prepare('INSERT INTO setores(nome, capacidade_setor) VALUES (:n, :c)');
         $stmt->execute([
             'n' => $_POST['nome'],
-            'd' => $_POST['data'],
-            'c' => $_POST['capacidade_maxima'],
+            'c' => $_POST['capacidade_setor'],
         ]);
         redirecionar('eventos');
     }
@@ -35,11 +34,10 @@ class setor
     {
         $db = bancoDados::conectar();
         var_dump($_POST['nome']);
-        $stmt = $db->prepare('UPDATE eventos SET nome = :n,data = :d,capacidade_maxima = :c WHERE id = :id');
+        $stmt = $db->prepare('UPDATE setores SET nome = :n,capacidade_setor = :c WHERE id = :id');
         $stmt->execute([
             'n' => $_POST['nome'],
-            'd' => $_POST['data'],
-            'c' => $_POST['capacidade_maxima'],
+            'c' => $_POST['capacidade_setor'],
             'id' =>$_POST['id']
         ]);
         redirecionar('eventos');
@@ -47,7 +45,7 @@ class setor
     public function json(){
         $db = bancoDados::conectar();
         $id = (int) $_GET["id"];
-        $stmt = $db->prepare("SELECT * FROM eventos WHERE id = :id");
+        $stmt = $db->prepare("SELECT * FROM setores WHERE id = :id");
         $stmt->execute(['id' => $id]);
         $usuarios = $stmt->fetch();
         header("Content-Type: application/json; charset=utf-8");

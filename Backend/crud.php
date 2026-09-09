@@ -39,7 +39,6 @@ class crud
         var_dump($_POST['nome']);
         $stmt = $db->prepare('UPDATE usuarios SET nome = :n,email = :e,senha = :s,cpf = :c,perfil = :p WHERE id = :id');
         $stmt->execute([
-            
             'n' => $_POST['nome'],
             'e' => $_POST['email'],
             's' => $_POST['senha'],

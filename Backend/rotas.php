@@ -18,6 +18,7 @@ $router->adicionar("GET", "/eventos/deletar", "eventos@deletar");
 $router->adicionar("POST", "/eventos/cadastrar", "eventos@cadastrar");
 $router->adicionar("POST", "/eventos/atualizar", "eventos@atualizar");
 $router->adicionar("GET", "/eventos/json", "eventos@json");
+$router->adicionar("GET", "/eventos/listarEventos", "eventos@listarEventos");
 
 
 // Rota CRUD eventos
